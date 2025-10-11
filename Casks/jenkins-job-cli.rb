@@ -3,13 +3,13 @@ cask "jenkins-job-cli" do
   name "jenkins-job-cli"
   desc "jenkins cli , simplified"
   homepage "https://github.com/jeffzhangc/jenkins-job-cli"
-  version "1.2.7"
+  version "1.2.8"
 
   livecheck do
     skip "Auto-generated on release."
   end
 
-  binary "jenkins-job-cli"
+  binary "jj"
   bash_completion "completions/jj.bash"
   zsh_completion "completions/jj.zsh"
   fish_completion "completions/jj.fish"
@@ -18,12 +18,12 @@ cask "jenkins-job-cli" do
     on_intel do
       url "https://github.com/jeffzhangc/jenkins-job-cli/releases/download/v#{version}/jenkins-job-cli_Darwin_x86_64.tar.gz",
         verified: "github.com/jeffzhangc/jenkins-job-cli/download"
-      sha256 "ce10efab408ba28106922cd7ee7b63b0d135f225db61c9ec0ab0edc3d84f0521"
+      sha256 "61a7d20ad05aadf4837d0429b11ceaea90d2cac9b592c100f3e599025f0bbc08"
     end
     on_arm do
       url "https://github.com/jeffzhangc/jenkins-job-cli/releases/download/v#{version}/jenkins-job-cli_Darwin_arm64.tar.gz",
         verified: "github.com/jeffzhangc/jenkins-job-cli/download"
-      sha256 "81b66732564f416c5621dd131a94cf5ee46ebbbd5220890d3fdc0beb721af3ee"
+      sha256 "5e89d4cde12f6f6708feaf0c39c94bae720245ffc95fa6687d803494eb318adf"
     end
   end
 
@@ -31,17 +31,13 @@ cask "jenkins-job-cli" do
     on_intel do
       url "https://github.com/jeffzhangc/jenkins-job-cli/releases/download/v#{version}/jenkins-job-cli_Linux_x86_64.tar.gz",
         verified: "github.com/jeffzhangc/jenkins-job-cli/download"
-      sha256 "177e40c9486cb1dd2aee972e62ee277b19a64677088717a6458a04aee576ae0e"
+      sha256 "f4e3ce39363a59f4b7b83755b03e1772b28c847df6f9dee9649740bf85c4bacb"
     end
     on_arm do
       url "https://github.com/jeffzhangc/jenkins-job-cli/releases/download/v#{version}/jenkins-job-cli_Linux_arm64.tar.gz",
         verified: "github.com/jeffzhangc/jenkins-job-cli/download"
-      sha256 "ff096293a9a872db24aa764b95be5b564ced4c4a7fc97c8805aa3058fc5c48e4"
+      sha256 "65ad7ebd0cf50c0c660d32be437f42bcfae189b912e5275f1bf106ff52bb9dd1"
     end
-  end
-
-  postflight do
-    bin.install_symlink "jenkins-job-cli" => "jj"
   end
 
   caveats do
