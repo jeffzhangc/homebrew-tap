@@ -5,13 +5,22 @@
 class JenkinsJobCli < Formula
   desc "Jenkins job CLI tool"
   homepage "https://github.com/jeffzhangc/jenkins-job-cli"
-  version "1.2.3"
+  version "1.2.4"
   license "MIT"
 
   on_macos do
     if Hardware::CPU.intel?
-      url "https://github.com/jeffzhangc/jenkins-job-cli/releases/download/v1.2.3/jenkins-job-cli_1.2.3_darwin_amd64.tar.gz"
-      sha256 "5f0eb6cb62852d92c42aaae0048289a77999cba5b9a68c473a1b2205782d0776"
+      url "https://github.com/jeffzhangc/jenkins-job-cli/releases/download/v1.2.4/jenkins-job-cli_1.2.4_darwin_amd64.tar.gz"
+      sha256 "d6fe87b7cbc7a9af1a2a3a1b79d1132bb412a0fb5ef9ac3637b6768a867bf44d"
+
+      def install
+        bin.install "jenkins-job-cli"
+        bin.install_symlink "jenkins-job-cli" => "jj"
+      end
+    end
+    if Hardware::CPU.arm?
+      url "https://github.com/jeffzhangc/jenkins-job-cli/releases/download/v1.2.4/jenkins-job-cli_1.2.4_darwin_arm64.tar.gz"
+      sha256 "a77de88e2b3f99593410e67f9fc98413da7183201a8ba368a4aa3d7f8d433075"
 
       def install
         bin.install "jenkins-job-cli"
@@ -21,29 +30,34 @@ class JenkinsJobCli < Formula
   end
 
   on_linux do
-    if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
-      url "https://github.com/jeffzhangc/jenkins-job-cli/releases/download/v1.2.3/jenkins-job-cli_1.2.3_linux_arm64.tar.gz"
-      sha256 "9da5b15cb6ada4e72c8e46b29bfa1eb457f71e03132ed735c71be193c9329a99"
+    if Hardware::CPU.intel?
+      if Hardware::CPU.is_64_bit?
+        url "https://github.com/jeffzhangc/jenkins-job-cli/releases/download/v1.2.4/jenkins-job-cli_1.2.4_linux_amd64.tar.gz"
+        sha256 "2fa9ce3fde44c4882207b71932a8fc9091cf350ca0619e271c96412b10396917"
 
-      def install
-        bin.install "jenkins-job-cli"
-        bin.install_symlink "jenkins-job-cli" => "jj"
+        def install
+          bin.install "jenkins-job-cli"
+          bin.install_symlink "jenkins-job-cli" => "jj"
+        end
       end
     end
-    if Hardware::CPU.intel?
-      url "https://github.com/jeffzhangc/jenkins-job-cli/releases/download/v1.2.3/jenkins-job-cli_1.2.3_linux_amd64.tar.gz"
-      sha256 "bc0307b618593c2df50de453f6f332f6f9a7616c78184a42a6334a9403bd5ad1"
+    if Hardware::CPU.arm?
+      if Hardware::CPU.is_64_bit?
+        url "https://github.com/jeffzhangc/jenkins-job-cli/releases/download/v1.2.4/jenkins-job-cli_1.2.4_linux_arm64.tar.gz"
+        sha256 "357c1ff61fa87d583816dbc28a934a6c2117749f6e67e670c7414da9409e2504"
 
-      def install
-        bin.install "jenkins-job-cli"
-        bin.install_symlink "jenkins-job-cli" => "jj"
+        def install
+          bin.install "jenkins-job-cli"
+          bin.install_symlink "jenkins-job-cli" => "jj"
+        end
       end
     end
   end
 
-  def caveats; <<~EOS
-    You can use either 'jenkins-job-cli' or 'jj' command
-  EOS
+  def caveats
+    <<~EOS
+      You can use either 'jenkins-job-cli' or 'jj' command
+    EOS
   end
 
   test do
