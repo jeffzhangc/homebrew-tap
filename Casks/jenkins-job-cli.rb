@@ -3,13 +3,13 @@ cask "jenkins-job-cli" do
   name "jenkins-job-cli"
   desc "jenkins cli , simplified"
   homepage "https://github.com/jeffzhangc/jenkins-job-cli"
-  version "1.2.8"
+  version "1.2.9"
 
   livecheck do
     skip "Auto-generated on release."
   end
 
-  binary "jj"
+  binary "jenkins-job-cli"
   bash_completion "completions/jj.bash"
   zsh_completion "completions/jj.zsh"
   fish_completion "completions/jj.fish"
@@ -18,12 +18,12 @@ cask "jenkins-job-cli" do
     on_intel do
       url "https://github.com/jeffzhangc/jenkins-job-cli/releases/download/v#{version}/jenkins-job-cli_Darwin_x86_64.tar.gz",
         verified: "github.com/jeffzhangc/jenkins-job-cli/download"
-      sha256 "61a7d20ad05aadf4837d0429b11ceaea90d2cac9b592c100f3e599025f0bbc08"
+      sha256 "a333d70e8e48a9ca6a10816d9bc960f5e2e751f2191f2bb8184afc81fc987123"
     end
     on_arm do
       url "https://github.com/jeffzhangc/jenkins-job-cli/releases/download/v#{version}/jenkins-job-cli_Darwin_arm64.tar.gz",
         verified: "github.com/jeffzhangc/jenkins-job-cli/download"
-      sha256 "5e89d4cde12f6f6708feaf0c39c94bae720245ffc95fa6687d803494eb318adf"
+      sha256 "fa682126fb36a07bfbf737ce3470141614b3699d2b9c34264ed3234277cb0d72"
     end
   end
 
@@ -31,13 +31,24 @@ cask "jenkins-job-cli" do
     on_intel do
       url "https://github.com/jeffzhangc/jenkins-job-cli/releases/download/v#{version}/jenkins-job-cli_Linux_x86_64.tar.gz",
         verified: "github.com/jeffzhangc/jenkins-job-cli/download"
-      sha256 "f4e3ce39363a59f4b7b83755b03e1772b28c847df6f9dee9649740bf85c4bacb"
+      sha256 "d9ac5884f9c96e6c695c49293bfd85efeb5a0a50772c267a8be78f4ae30769dd"
     end
     on_arm do
       url "https://github.com/jeffzhangc/jenkins-job-cli/releases/download/v#{version}/jenkins-job-cli_Linux_arm64.tar.gz",
         verified: "github.com/jeffzhangc/jenkins-job-cli/download"
-      sha256 "65ad7ebd0cf50c0c660d32be437f42bcfae189b912e5275f1bf106ff52bb9dd1"
+      sha256 "75933baafda3788e575f69e1f4e8930f055cc46a77b7979db07a25a5d081f015"
     end
+  end
+
+  postflight do
+    target = if Hardware::CPU.arm?
+      '/opt/homebrew/bin/jj'
+    else
+      '/usr/local/bin/jj'
+    end
+    system_command '/bin/ln',
+                  args: ['-sf', "#{staged_path}/jenkins-job-cli", target],
+                  sudo: true
   end
 
   caveats do
