@@ -3,7 +3,7 @@ cask "jenkins-job-cli" do
   name "jenkins-job-cli"
   desc "Jenkins CLI tool for managing Jenkins jobs programmatically"
   homepage "https://github.com/jeffzhangc/jenkins-job-cli"
-  version "1.4.2"
+  version "1.4.3"
 
   livecheck do
     skip "Auto-generated on release."
@@ -18,12 +18,12 @@ cask "jenkins-job-cli" do
     on_intel do
       url "https://github.com/jeffzhangc/jenkins-job-cli/releases/download/v#{version}/jenkins-job-cli_Darwin_x86_64.tar.gz",
         verified: "github.com/jeffzhangc/jenkins-job-cli/download"
-      sha256 "0abaf071e81e716207fb99c0ca130b45e5eddd7882fb0ee0e06d4fc4847000d4"
+      sha256 "99608de83f07561263958044fa579cdc2a51c8857abba39a64b65424ef717cd7"
     end
     on_arm do
       url "https://github.com/jeffzhangc/jenkins-job-cli/releases/download/v#{version}/jenkins-job-cli_Darwin_arm64.tar.gz",
         verified: "github.com/jeffzhangc/jenkins-job-cli/download"
-      sha256 "c6e4bb29a9e45e1e203c58bcb373b94593a42aa59db951f71a5dea424fe5fb6e"
+      sha256 "5fea1dc80cca5fcc0e27f41b55f7238a0597ddddf51db5d5ff2c4b94e3ff70b5"
     end
   end
 
@@ -31,17 +31,17 @@ cask "jenkins-job-cli" do
     on_intel do
       url "https://github.com/jeffzhangc/jenkins-job-cli/releases/download/v#{version}/jenkins-job-cli_Linux_x86_64.tar.gz",
         verified: "github.com/jeffzhangc/jenkins-job-cli/download"
-      sha256 "942d8f8bc9fbd9d1dcc67de21d6503d7e09b55a06ce9cbd7510f4237f7eafa75"
+      sha256 "9aa4d49e19b7ba9e162606d1efa4de58b1c476920c291869eff99ba47bd54918"
     end
     on_arm do
       url "https://github.com/jeffzhangc/jenkins-job-cli/releases/download/v#{version}/jenkins-job-cli_Linux_arm64.tar.gz",
         verified: "github.com/jeffzhangc/jenkins-job-cli/download"
-      sha256 "0fca2521c45a77db2ad2284f77166d3e1d14cda70ed5dd0c333e2c4ebf96970d"
+      sha256 "2efa3db5b74565bb3c52c2bde39e651c952bb22282752c1547e95be92e2de9db"
     end
   end
 
   postflight do
-    brew_prefix = `brew --prefix`.chomp
+    brew_prefix = ENV['HOMEBREW_PREFIX'] || '/opt/homebrew'
     target = "#{brew_prefix}/bin/jj"
     binary_path = "#{staged_path}/jenkins-job-cli"
 
