@@ -3,7 +3,7 @@ cask "sshpky" do
   name "sshpky"
   desc "ssh tools , simplified"
   homepage "https://github.com/jeffzhangc/go-sshpky"
-  version "1.1.1"
+  version "1.2.1"
 
   livecheck do
     skip "Auto-generated on release."
@@ -18,12 +18,12 @@ cask "sshpky" do
     on_intel do
       url "https://github.com/jeffzhangc/go-sshpky/releases/download/v#{version}/go-sshpky_Darwin_x86_64.tar.gz",
         verified: "github.com/jeffzhangc/go-sshpky/download"
-      sha256 "0e603210c6336f28baa7dc4c9cf2669e65f39675e77f12ac1f173ba50b8c148a"
+      sha256 "29449f57948048830c087b625ae81aee1eef5478fd2b008f326af033cfc3250f"
     end
     on_arm do
       url "https://github.com/jeffzhangc/go-sshpky/releases/download/v#{version}/go-sshpky_Darwin_arm64.tar.gz",
         verified: "github.com/jeffzhangc/go-sshpky/download"
-      sha256 "3c4286e3a85c1f224b6d9f9a2fefba74257a8876358ebf2e834acd28aa769ec9"
+      sha256 "8d8560642e4b237ac85711c7eb0cae1e56710cc4c70f13c2684027b2ca139020"
     end
   end
 
@@ -31,12 +31,12 @@ cask "sshpky" do
     on_intel do
       url "https://github.com/jeffzhangc/go-sshpky/releases/download/v#{version}/go-sshpky_Linux_x86_64.tar.gz",
         verified: "github.com/jeffzhangc/go-sshpky/download"
-      sha256 "4007c3be4eb889539fa42827fca5cdbab745fe79b31b0359d96626392e545761"
+      sha256 "c9ee18fc4af668365f57c5a4e0b1b6fa4de88184bd825fd10a8d6ad4b2911f17"
     end
     on_arm do
       url "https://github.com/jeffzhangc/go-sshpky/releases/download/v#{version}/go-sshpky_Linux_arm64.tar.gz",
         verified: "github.com/jeffzhangc/go-sshpky/download"
-      sha256 "795d28b0937bfe15ac2923034503d05e1d0ca236e592f61e8e6d556ac4803907"
+      sha256 "678862a75ee4d0c4aba0561a78beb2f02743d8aabe0230fa4f5934b9286949b1"
     end
   end
 
