@@ -3,7 +3,7 @@ cask "sshpky" do
   name "sshpky"
   desc "ssh tools , simplified"
   homepage "https://github.com/jeffzhangc/go-sshpky"
-  version "1.2.1"
+  version "2.0.0"
 
   livecheck do
     skip "Auto-generated on release."
@@ -16,27 +16,27 @@ cask "sshpky" do
 
   on_macos do
     on_intel do
-      url "https://github.com/jeffzhangc/go-sshpky/releases/download/v#{version}/go-sshpky_Darwin_x86_64.tar.gz",
+      url "https://github.com/jeffzhangc/go-sshpky/releases/download/#{version}/go-sshpky_Darwin_x86_64.tar.gz",
         verified: "github.com/jeffzhangc/go-sshpky/download"
-      sha256 "29449f57948048830c087b625ae81aee1eef5478fd2b008f326af033cfc3250f"
+      sha256 "aec97c63302d2a2cf000e977c509293f5b880ec3d46454833e99c2be4bc2e7fc"
     end
     on_arm do
-      url "https://github.com/jeffzhangc/go-sshpky/releases/download/v#{version}/go-sshpky_Darwin_arm64.tar.gz",
+      url "https://github.com/jeffzhangc/go-sshpky/releases/download/#{version}/go-sshpky_Darwin_arm64.tar.gz",
         verified: "github.com/jeffzhangc/go-sshpky/download"
-      sha256 "8d8560642e4b237ac85711c7eb0cae1e56710cc4c70f13c2684027b2ca139020"
+      sha256 "d6dcdf78546bdedd9fade2499a559d65c346ef983fed6f991fc2f9d594c79ab4"
     end
   end
 
   on_linux do
     on_intel do
-      url "https://github.com/jeffzhangc/go-sshpky/releases/download/v#{version}/go-sshpky_Linux_x86_64.tar.gz",
+      url "https://github.com/jeffzhangc/go-sshpky/releases/download/#{version}/go-sshpky_Linux_x86_64.tar.gz",
         verified: "github.com/jeffzhangc/go-sshpky/download"
-      sha256 "c9ee18fc4af668365f57c5a4e0b1b6fa4de88184bd825fd10a8d6ad4b2911f17"
+      sha256 "07183b978d6ee9c0bcf7bd5026d69c911f3b21d9f7162aaa795835c8adfc97d6"
     end
     on_arm do
-      url "https://github.com/jeffzhangc/go-sshpky/releases/download/v#{version}/go-sshpky_Linux_arm64.tar.gz",
+      url "https://github.com/jeffzhangc/go-sshpky/releases/download/#{version}/go-sshpky_Linux_arm64.tar.gz",
         verified: "github.com/jeffzhangc/go-sshpky/download"
-      sha256 "678862a75ee4d0c4aba0561a78beb2f02743d8aabe0230fa4f5934b9286949b1"
+      sha256 "44d8e9a6d6f4958bd4ff65ddad1bfab9c15f0ba8942f98d6a0cb13830f8e85bb"
     end
   end
 
