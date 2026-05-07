@@ -3,7 +3,7 @@ cask "jenkins-job-cli" do
   name "jenkins-job-cli"
   desc "Jenkins CLI tool for managing Jenkins jobs programmatically"
   homepage "https://github.com/jeffzhangc/jenkins-job-cli"
-  version "1.4.6"
+  version "1.5.0"
 
   livecheck do
     skip "Auto-generated on release."
@@ -18,12 +18,12 @@ cask "jenkins-job-cli" do
     on_intel do
       url "https://github.com/jeffzhangc/jenkins-job-cli/releases/download/v#{version}/jenkins-job-cli_Darwin_x86_64.tar.gz",
         verified: "github.com/jeffzhangc/jenkins-job-cli/download"
-      sha256 "dd078498c415e3b6d0d0c4d07fe077bd894bbd47e95105fb00153596082528d7"
+      sha256 "d578240a3230a593239b669376cf95785956a7ab585aef10666bc82732f5e19e"
     end
     on_arm do
       url "https://github.com/jeffzhangc/jenkins-job-cli/releases/download/v#{version}/jenkins-job-cli_Darwin_arm64.tar.gz",
         verified: "github.com/jeffzhangc/jenkins-job-cli/download"
-      sha256 "600488d21895241828261bcc942eea8c16894937547e05345eb525aa8ee07d38"
+      sha256 "7dba2a4438cb5d866e74c2d93bdb76c9ca9217f2b002102e01d42ad0aa581a44"
     end
   end
 
@@ -31,12 +31,12 @@ cask "jenkins-job-cli" do
     on_intel do
       url "https://github.com/jeffzhangc/jenkins-job-cli/releases/download/v#{version}/jenkins-job-cli_Linux_x86_64.tar.gz",
         verified: "github.com/jeffzhangc/jenkins-job-cli/download"
-      sha256 "1eed7cb3566c0ebe7b59de71d06606567cd29b4e2eb67ebbd822beafe8f7c2e3"
+      sha256 "64a8a13f9671dcf6cd39b517cb41755f1f614438d81405fc1746a8111e4f8d64"
     end
     on_arm do
       url "https://github.com/jeffzhangc/jenkins-job-cli/releases/download/v#{version}/jenkins-job-cli_Linux_arm64.tar.gz",
         verified: "github.com/jeffzhangc/jenkins-job-cli/download"
-      sha256 "3056fd09887047453739f04a8c084e88a0ce91cac4eabf237e93884105234672"
+      sha256 "5b3a83c090740c4d6b819a8a45569d734f70e641fbbf8e2cc66f798d5e32f206"
     end
   end
 
